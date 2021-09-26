@@ -9,7 +9,7 @@ for(let i = 0; i < artworksNum; i++) {
     artwork1.className = 'artwork'
 
     artwork1.innerHTML = `
-      <img src="only_logo/${i + 1}/poster.jpeg?${new Date().getTime()}">
+      <img src="only_logo/${i + 1}/poster.jpeg">
       <div class="info">
         <div class="ratio">ទំហំ​ ${artworksRatio[i]}</div>
         <div class="options">
@@ -24,7 +24,7 @@ for(let i = 0; i < artworksNum; i++) {
   artwork2.className = 'artwork'
 
   artwork2.innerHTML = `
-    <img src="artworks/${i + 1}/img/poster.jpeg?${new Date().getTime()}">
+    <img src="artworks/${i + 1}/img/poster.jpeg">
     <div class="info">
       <div class="ratio">ទំហំ​ ${artworksRatio[i]}</div>
       <div class="options">
@@ -50,11 +50,13 @@ changes.forEach((change, idx) => {
     if(input.innerText === 'បញ្ចូលតែលេខទូរស័ព្ទ') {
       input.innerText = 'បញ្ចូលគ្រប់ព័ត៌មាន'
       input.href = `artworks/${idx + 1}/all.php`
-      img.src = `artworks/${idx + 1}/img/poster.jpeg?${new Date().getTime()}`
+      img.src = `artworks/${idx + 1}/img/poster.jpeg`
     } else {
       input.innerText = 'បញ្ចូលតែលេខទូរស័ព្ទ'
       input.href = `artworks/${idx + 1}/phone.php`
-      img.src = `artworks/${idx + 1}/img/poster1.jpeg?${new Date().getTime()}`
+      img.src = `artworks/${idx + 1}/img/poster1.jpeg`
     }
   })
 })
+
+// ?${new Date().getTime()} , for production

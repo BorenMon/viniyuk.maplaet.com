@@ -40,10 +40,11 @@
   </div>
 
   <?php
-    include_javascript('../assets/js/nav.js');
-    include_javascript('../assets/js/dashboard.js');
+    // For Production
+    // include_javascript('../assets/js/nav.js');
+    // include_javascript('../assets/js/dashboard.js');
   ?>
-  <!-- <script src="../assets/js/nav.js"></script>
-  <script src="../assets/js/dashboard.js"></script>-->
+  <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
 </body>
 </html>

@@ -1,0 +1,78 @@
+body {
+  background-color: #f5f5f5;
+  margin: 77px 0 21px;
+}
+
+nav {
+  background-color: var(--main-color);
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 7;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 21px;
+}
+
+nav .container {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 21px;
+  user-select: none;
+}
+
+#menu-bar {
+  color: white;
+  font-size: 30px;
+  display: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Krasar-Medium', 'Bahnschrift-Medium', sans-serif;
+  margin-left: 25px;
+}
+
+@media(max-width: 800px) {
+  #menu-bar {
+    display: block;
+  }
+
+  .menu {
+    position: fixed;
+    top: 59.6px;
+    left: 0;
+    background-color: white;
+    width: 100vw;
+    padding: 15px 0;
+    display: none;
+    transition: 0.25s ease-in-out;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+  }
+
+  .menu.show {
+    display: block;
+  }
+
+  .menu a {
+    color: #151515;
+    margin: 0;
+    display: flex;
+    height: 50px;
+    align-items: center;
+    padding-left: 21px;
+  }
+}

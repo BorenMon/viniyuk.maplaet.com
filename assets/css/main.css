@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'Krasar-Bold';
+  src: url(../font/Krasar-Bold.ttf);
+}
+@font-face {
+  font-family: 'Krasar-Light';
+  src: url(../font/Krasar-Light.ttf);
+}
+@font-face {
+  font-family: 'Krasar-Medium';
+  src: url(../font/Krasar-Medium.ttf);
+}
+@font-face {
+  font-family: 'Krasar-Regular';
+  src: url(../font/Krasar-Regular.ttf);
+}
+@font-face {
+  font-family: 'Bahnschrift-Regular';
+  src: url(../font/BAHNSCHRIFT\ 7.TTF);
+  font-weight: 200;
+}
+@font-face {
+  font-family: 'Bahnschrift-Medium';
+  src: url(../font/BAHNSCHRIFT\ 7.TTF);
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Bahnschrift-Bold';
+  src: url(../font/BAHNSCHRIFT\ 7.TTF);
+  font-weight: bold;
+}
+
+:root {
+  --main-color: #7c141f;
+}
+
+* {
+  box-sizing: border-box;
+  color: #252525;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active
+{
+ -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  overflow-x: hidden;
+}

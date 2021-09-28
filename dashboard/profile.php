@@ -53,8 +53,8 @@
       <div class="part part1">
         <div class="profile-img" style=" background-image: url(
           <?php
-            if($user['profile_url'] == '') echo '../assets/img/user.svg';
-            else echo $user['profile_url'];
+            if($user['profile_img'] == '') echo '../assets/img/user.svg';
+            else echo 'data:image/png;base64,'.base64_encode( $user['profile_img'] );
           ?>
         );"></div>
         <div class="value"><?php echo $user['username']; ?></div>

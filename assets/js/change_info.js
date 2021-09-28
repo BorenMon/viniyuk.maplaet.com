@@ -145,21 +145,15 @@ $(document)
     formData.append('telegram_link', data['telegram_link'])
 
     if(profileImg.style.backgroundImage != resetProfileImg) {
-      data['profile_url'] = dataURItoBlob(canvas.toDataURL())
-      formData.append('profile_url', data['profile_url'])
-    }
-
-    // Call AJAX here
-    // $.post('../ajax/change_info.php', data, function(result) {
-    //   window.location = result
-    // })
-    
+      data['profile_img'] = dataURItoBlob(canvas.toDataURL())
+      formData.append('profile_img', data['profile_img'])
+      console.log(canvas.toDataURL())
+    }  
 
     $.ajax({
       type: 'POST',
       url: '../ajax/change_info.php',
       data: formData,
-      // dataType: 'json',
       processData: false,
       contentType: false
     })

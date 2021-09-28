@@ -31,10 +31,12 @@
     $updateInfo->bindParam(':id', $id, PDO::PARAM_STR);
     $updateInfo->execute();
 
-    if(isset($_POST["profile_url"])) {
+    if(isset($_FILES["profile_img"])) {
 
-      $updateProfileImg = $con->prepare('update users set profile_url = :profile_url where id = :id');
-      $updateProfileImg->bindParam(':profile_url', $_POST["profile_url"], PDO::PARAM_STR);
+      $image = file_get_contents($_FILES['profile_img']['tmp_name']);
+
+      $updateProfileImg = $con->prepare('update users set profile_img = :profile_img where id = :id');
+      $updateProfileImg->bindParam(':profile_img', $image, PDO::PARAM_LOB);
       $updateProfileImg->bindParam(':id', $id, PDO::PARAM_STR);
       $updateProfileImg->execute();
     }

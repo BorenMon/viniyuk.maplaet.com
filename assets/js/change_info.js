@@ -54,6 +54,33 @@ function cropImg() {
 
 cropBtn.addEventListener('click', cropImg)
 
+function dataURItoBlob(dataURI) {
+  // convert base64 to raw binary data held in a string
+  // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
+  var byteString = atob(dataURI.split(',')[1]);
+
+  // separate out the mime component
+  var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+  // write the bytes of the string to an ArrayBuffer
+  var ab = new ArrayBuffer(byteString.length);
+  var ia = new Uint8Array(ab);
+  for (var i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+  }
+
+  //Old Code
+  //write the ArrayBuffer to a blob, and you're done
+  //var bb = new BlobBuilder();
+  //bb.append(ab);
+  //return bb.getBlob(mimeString);
+
+  //New Code
+  return new Blob([ab], {type: mimeString});
+
+
+}
+
 $(document)
 .on('submit', '.change', function(event) {
   event.preventDefault()
@@ -71,7 +98,7 @@ $(document)
     'លេខទូរស័ព្ទទី១',
   ]
 
-  var data = {
+  let data = {
     username: $('#username').val(),
     fname_kh: $('#fname-kh').val(),
     lname_kh: $('#lname-kh').val(),
@@ -106,28 +133,41 @@ $(document)
   }
   
   if(!hasError) {
+    let formData = new FormData();
+
+    formData.append('username', data['username'])
+    formData.append('fname_kh', data['fname_kh'])
+    formData.append('lname_kh', data['lname_kh'])
+    formData.append('fname_en', data['fname_en'])
+    formData.append('lname_en', data['lname_en'])
+    formData.append('phone1', data['phone1'])
+    formData.append('phone2', data['phone2'])
+    formData.append('telegram_link', data['telegram_link'])
+
     if(profileImg.style.backgroundImage != resetProfileImg) {
-      data['profile_url'] = canvas.toDataURL()
+      data['profile_url'] = dataURItoBlob(canvas.toDataURL())
+      formData.append('profile_url', data['profile_url'])
     }
 
     // Call AJAX here
-    $.post('../ajax/change_info.php', data, function(result) {
-      window.location = result
-    })
-    
-
-    // $.ajax({
-    //   type: 'POST',
-    //   url: '../ajax/change_info.php',
-    //   data: data,
-    //   dataType: 'json',
-    //   async: true
-    // })
-    // .done(function(result) {
+    // $.post('../ajax/change_info.php', data, function(result) {
     //   window.location = result
     // })
-    // .fail(function(e) {
-    //   console.log(e.responseText)
-    // })
+    
+
+    $.ajax({
+      type: 'POST',
+      url: '../ajax/change_info.php',
+      data: formData,
+      // dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+    .done(function(result) {
+      window.location = result
+    })
+    .fail(function(e) {
+      console.log(e.responseText)
+    })
   }
 })

@@ -12,10 +12,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-wep-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="viniyuk">
   <title>Login</title>
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/index.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- <link rel="manifest" href="manifest.json"> -->
+  <link rel="stylesheet" href="add_to_homescreen/style/addtohomescreen.css">
 </head>
 <body>
   <div class="container">
@@ -50,5 +58,16 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
   <script src="assets/js/index.js"></script>
+  <script src="add_to_homescreen/src/addtohomescreen.js"></script>
+  <script>
+    // if the website is not opened in app mode show (i.e. i browser) the add to homescreen prompt
+    if (
+      (('standalone' in window.navigator) && !window.navigator.standalone) // ios
+      ||
+      ( !window.matchMedia('(display-mode: standalone)').matches ) // android
+    ) {
+      addToHomescreen()
+    }
+  </script>
 </body>
 </html>

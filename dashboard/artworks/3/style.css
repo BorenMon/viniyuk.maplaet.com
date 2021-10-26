@@ -10,8 +10,8 @@ main.container {
 }
 
 .design-preview {
-  width: 45vw;
-  height: calc(135vw/2);
+  width: 30vw;
+  height: 45vw;
   background-color: white;
   position: relative;
 }
@@ -48,8 +48,8 @@ main.container {
   bottom: 8.5%;
   transform: translateX(-50%);
   background-color: #97001c;
-  padding: calc((1vw * 45) / 93) calc((5vw * 45) / 93);
-  box-shadow: 0 calc((0.3vw * 45) / 93) calc((1vw * 45) / 93) rgba(0,0,0,0.15);
+  padding: calc((1vw * 30) / 93) calc((5vw * 30) / 93);
+  box-shadow: 0 calc((0.3vw * 30) / 93) calc((1vw * 30) / 93) rgba(0,0,0,0.15);
   z-index: 2;
 }
 
@@ -76,24 +76,24 @@ main.container {
 .main > * {
   color: white;
   font-family: 'Bahnschrift-Medium', 'Krasar-Medium', sans-serif;
-  font-size: calc((4.5vw * 45) / 93);
+  font-size: calc((4.5vw * 30) / 93);
   white-space: nowrap;
 }
 
 .divider {
-  height: calc((6vw * 45) / 93);
-  width: calc((0.35vw * 45) / 93);
+  height: calc((6vw * 30) / 93);
+  width: calc((0.35vw * 30) / 93);
   background-color: white;
-  margin: 0 calc((2vw * 45) / 93);
+  margin: 0 calc((2vw * 30) / 93);
 }
 
 .price {
   color: #ffd900;
-  font-size: calc((5vw * 45) / 93);
+  font-size: calc((5vw * 30) / 93);
 }
 
 .location {
-  font-size: calc((2.7vw * 45) / 93);
+  font-size: calc((2.7vw * 30) / 93);
   color: white;
   font-family: 'Bahnschrift-Regular', 'Krasar-Regular', sans-serif;
 }
@@ -112,8 +112,8 @@ main.container {
 
 .phones {
   position: relative;
-  top: calc((0.3vw * 45) / 93);
-  font-size: calc((3.5vw * 45) / 93);
+  top: calc((0.3vw * 30) / 93);
+  font-size: calc((3.5vw * 30) / 93);
   font-family: 'Bahnschrift-Medium', 'Krasar-Medium', sans-serif;
   white-space: nowrap;
   color: white;
@@ -124,10 +124,10 @@ main.container {
 }
 
 .qr {
-  width: calc((8vw * 45) / 93);
-  height: calc((8vw * 45) / 93);
-  margin-left: calc((1.5vw * 45) / 93);
-  border: calc((0.4vw * 45) / 93) solid white;
+  width: calc((8vw * 30) / 93);
+  height: calc((8vw * 30) / 93);
+  margin-left: calc((1.5vw * 30) / 93);
+  border: calc((0.4vw * 30) / 93) solid white;
   background-size: cover;
   background-position: center;
 }

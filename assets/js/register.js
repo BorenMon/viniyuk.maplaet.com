@@ -111,8 +111,5 @@ $(document)
     .fail(function(e) {
       console.log(e)
     })
-    .always(function(data) {
-      console.log('Always')
-    })
   }
 })

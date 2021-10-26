@@ -4,8 +4,8 @@
 <script src="../../../assets/js/dom-to-image-more.js"></script>
 <?php
   // For Production
-  // include_javascript('../../../assets/js/nav.js');
-  // include_javascript('script.js');
+  include_javascript('../../../assets/js/nav.js');
+  include_javascript('script.js');
 ?>
-<script src="../../../assets/js/nav.js"></script>
-<script src="script.js"></script>
+<!-- <script src="../../../assets/js/nav.js"></script>
+<script src="script.js"></script> -->

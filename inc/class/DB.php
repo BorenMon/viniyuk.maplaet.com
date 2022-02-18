@@ -10,7 +10,7 @@ class DB {
   private function __construct() {
 
     try {
-      self::$con = new PDO('mysql:charset=utf8mb4;host=localhost;port=3306;dbname=mongkulp_viniyuk.maplaet.com', 'mongkulp_boren', 'dEVvAe3].u49~3dH0Z');
+      self::$con = new PDO('mysql:charset=utf8mb4;host=localhost;port=3306;dbname=mongkulp_viniyuk.maplaet.com', 'mongkulp_boren_mon', 'boren_mon');
     } catch (PDOException $e) {
       echo $e;
       exit;

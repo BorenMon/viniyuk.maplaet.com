@@ -1,6 +1,6 @@
 const artworks = document.querySelector('.artworks')
 
-const artworksRatio = ['1 : 1', '3 : 2', '2 : 3', '1 : 1']
+const artworksRatio = ['1 : 1', '3 : 2', '2 : 3', '1 : 1', '3 : 2']
 const artworksNum = artworksRatio.length
 
 for(let i = 0; i < artworksNum; i++) {
@@ -20,20 +20,22 @@ for(let i = 0; i < artworksNum; i++) {
     artworks.appendChild(artwork1)
   }
 
-  const artwork2 = document.createElement('div')
-  artwork2.className = 'artwork'
+  if(i != 4) {
+    const artwork2 = document.createElement('div')
+    artwork2.className = 'artwork'
 
-  artwork2.innerHTML = `
-    <img src="artworks/${i + 1}/img/poster.jpeg">
-    <div class="info">
-      <div class="ratio">ទំហំ​ ${artworksRatio[i]}</div>
-      <div class="options">
-        <i class="fas fa-random"></i>
-        <a href="artworks/${i + 1}/all.php">បញ្ចូលគ្រប់ព័ត៌មាន</a>
+    artwork2.innerHTML = `
+      <img src="artworks/${i + 1}/img/poster.jpeg">
+      <div class="info">
+        <div class="ratio">ទំហំ​ ${artworksRatio[i]}</div>
+        <div class="options">
+          <i class="fas fa-random"></i>
+          <a href="artworks/${i + 1}/all.php">បញ្ចូលគ្រប់ព័ត៌មាន</a>
+        </div>
       </div>
-    </div>
-  `
-  artworks.appendChild(artwork2)
+    `
+    artworks.appendChild(artwork2)
+  }
 }
 
 const artwork = document.querySelectorAll('.artwork')

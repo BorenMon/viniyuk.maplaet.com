@@ -29,6 +29,10 @@
   src: url(../font/BAHNSCHRIFT\ 7.TTF);
   font-weight: bold;
 }
+@font-face {
+  font-family: 'Koulen';
+  src: url(../font/Koulen.ttf);
+}
 
 :root {
   --main-color: #7c141f;

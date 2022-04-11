@@ -9,7 +9,7 @@ for(let i = 0; i < artworksNum; i++) {
     artwork1.className = 'artwork'
 
     artwork1.innerHTML = `
-      <img src="only_logo/${i + 1}/poster.jpeg">
+      <img src="only_logo/${i + 1}/poster.jpeg?${new Date().getTime()}">
       <div class="info">
         <div class="ratio">ទំហំ​ ${artworksRatio[i]}</div>
         <div class="options">
@@ -25,7 +25,7 @@ for(let i = 0; i < artworksNum; i++) {
     artwork2.className = 'artwork'
 
     artwork2.innerHTML = `
-      <img src="artworks/${i + 1}/img/poster.jpeg?${new Date().getTime()}">
+      <img src="artworks/${i + 1}/img/poster.jpeg">
       <div class="info">
         <div class="ratio">ទំហំ​ ${artworksRatio[i]}</div>
         <div class="options">

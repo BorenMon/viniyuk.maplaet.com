@@ -1,0 +1,413 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+label {
+  font-family: 'Bahnschrift-Regular', 'Krasar-Regular', sans-serif;
+}
+
+main.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.design-preview {
+  width: 45vw;
+  height: calc(135vw / 2);
+  position: relative;
+}
+
+.design-preview .background {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  background-position: center;
+  background-size: cover;
+}
+
+.design-preview .gradient-overlay {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(124, 20, 31, 0)), color-stop(40%, rgba(124, 20, 31, 0)), to(#7c141f));
+  background: linear-gradient(to bottom, rgba(124, 20, 31, 0) 0%, rgba(124, 20, 31, 0) 40%, #7c141f 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.design-preview .info {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 4%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.design-preview .info .upper-info {
+  text-align: center;
+}
+
+.design-preview .info .upper-info .type {
+  color: white;
+  font-family: 'Bahnschrift-Bold', 'Koulen', sans-serif;
+  white-space: nowrap;
+  font-size: 2.9vw;
+}
+
+.design-preview .info .upper-info .location {
+  color: white;
+  font-family: 'Krasar-Regular', sans-serif;
+  white-space: nowrap;
+  font-size: 1.5vw;
+}
+
+.design-preview .info .middle-info {
+  text-align: center;
+  margin-top: 3%;
+}
+
+.design-preview .info .middle-info .price-tag {
+  font-family: 'Krasar-Bold', sans-serif;
+  color: #ffb000;
+  font-size: 1.5vw;
+}
+
+.design-preview .info .middle-info .price {
+  font-family: 'Bahnschrift-Bold', 'Krasar-Medium', sans-serif;
+  color: #ffb000;
+  white-space: nowrap;
+  font-size: 3.3vw;
+}
+
+.design-preview .info .lower-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin-top: 7%;
+}
+
+.design-preview .info .lower-info .contact {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: white;
+  border-radius: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5vw 1vw;
+}
+
+.design-preview .info .lower-info .contact i {
+  color: #7c141f;
+  margin-right: 0.5vw;
+  font-size: 1.4vw;
+}
+
+.design-preview .info .lower-info .contact .phone {
+  white-space: nowrap;
+  font-family: 'Bahnschrift-Medium', sans-serif;
+  color: #7c141f;
+  line-height: 0;
+  margin-top: 0.2vw;
+  font-size: 1.4vw;
+}
+
+.design-preview .info .lower-info .contact .phone .phone1, .design-preview .info .lower-info .contact .phone .phone2 {
+  color: #7c141f;
+}
+
+.design-preview .info .lower-info .slogan {
+  font-family: 'Krasar-Medium', sans-serif;
+  color: white;
+  white-space: nowrap;
+  font-size: 1.3vw;
+  margin-top: 0.5vw;
+}
+
+.design-preview .design-logo {
+  position: absolute;
+  top: 4%;
+  left: 6%;
+  width: 12%;
+}
+
+.inputs {
+  width: calc(100% - 50vw);
+}
+
+.inputs #background {
+  display: none;
+}
+
+.buttons {
+  display: block;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.buttons button {
+  background-color: var(--main-color);
+  border: none;
+  color: white;
+  font-family: 'Bahnschrift-Regular', 'Krasar-Regular', sans-serif;
+  padding: 7px 15px;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-right: 7px;
+  font-size: 15px;
+  width: 170px;
+}
+
+.buttons button:focus {
+  outline: 0;
+}
+
+.buttons button:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+.file-name {
+  width: calc(100% - 250px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Bahnschrift-Regular', 'Krasar-Regular', sans-serif;
+  color: var(--main-color);
+}
+
+.inputs input {
+  width: 100%;
+  font-size: 15px;
+  padding: 7px;
+  border: 2px solid #151515;
+  border-radius: 7px;
+  font-family: 'Bahnschrift-Regular', 'Krasar-Regular', sans-serif;
+  margin-bottom: 15px;
+}
+
+.inputs input::-webkit-input-placeholder {
+  color: #151515;
+}
+
+.inputs input:-ms-input-placeholder {
+  color: #151515;
+}
+
+.inputs input::-ms-input-placeholder {
+  color: #151515;
+}
+
+.inputs input::placeholder {
+  color: #151515;
+}
+
+.inputs input:focus {
+  outline: 0;
+  border-color: var(--main-color);
+  color: var(--main-color);
+}
+
+@media (max-width: 800px) {
+  main.container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .design-preview {
+    width: 93vw;
+    height: calc(279vw / 2);
+  }
+  .design-preview .info .upper-info .type {
+    font-size: calc(2.9vw * 93 / 45);
+  }
+  .design-preview .info .upper-info .location {
+    font-size: calc(1.5vw * 93 / 45);
+  }
+  .design-preview .info .middle-info .price-tag {
+    font-size: calc(1.5vw * 93 / 45);
+  }
+  .design-preview .info .middle-info .price {
+    font-size: calc(3.3vw * 93 / 45);
+  }
+  .design-preview .info .lower-info .contact {
+    border-radius: calc(100vw * 93 / 45);
+    padding: calc(0.5vw * 93 / 45) calc(1vw * 93 / 45);
+  }
+  .design-preview .info .lower-info .contact i {
+    margin-right: calc(0.5vw * 93 / 45);
+    font-size: calc(1.4vw * 93 / 45);
+  }
+  .design-preview .info .lower-info .contact .phone {
+    margin-top: calc(0.2vw * 93 / 45);
+    font-size: calc(1.4vw * 93 / 45);
+  }
+  .design-preview .info .lower-info .slogan {
+    font-size: calc(1.3vw * 93 / 45);
+    margin-top: calc(0.5vw * 93 / 45);
+  }
+  .inputs {
+    width: 93vw;
+    margin-top: 21px;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 7;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #f5f5f5;
+  margin: 0 auto;
+  max-width: 700px;
+  padding: 21px;
+  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.closeBtn {
+  color: var(--main-color);
+  font-size: 21px;
+  cursor: pointer;
+}
+
+.closeBtn:hover {
+  color: #151515;
+}
+
+.modal-content h2 {
+  font-family: 'Bahnschrift-Medium', 'Krasar-Medium', sans-serif;
+  margin: 0;
+  color: var(--main-color);
+}
+
+.modal-content img {
+  width: 100%;
+}
+
+.modal-content button {
+  width: 100%;
+  font-size: 17px;
+  color: white;
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 7px;
+  padding: 7px 0;
+  font-family: 'Bahnschrift-Regular', 'Krasar-Regular', sans-serif;
+}
+
+.modal-content button:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #f5f5f5;
+}
+
+#download {
+  width: calc(45vw * 7);
+  height: calc(135vw / 2 * 7);
+}
+
+#download .info .upper-info .type {
+  font-size: calc(2.9vw * 7);
+}
+
+#download .info .upper-info .location {
+  font-size: calc(1.5vw * 7);
+}
+
+#download .info .middle-info .price-tag {
+  font-size: calc(1.5vw * 7);
+}
+
+#download .info .middle-info .price {
+  font-size: calc(3.3vw * 7);
+}
+
+#download .info .lower-info .contact {
+  border-radius: calc(100vw * 7);
+  padding: calc(0.5vw * 7) calc(1vw * 7);
+}
+
+#download .info .lower-info .contact i {
+  margin-right: calc(0.5vw * 7);
+  font-size: calc(1.4vw * 7);
+}
+
+#download .info .lower-info .contact .phone {
+  margin-top: calc(0.2vw * 7);
+  font-size: calc(1.4vw * 7);
+}
+
+#download .info .lower-info .slogan {
+  font-size: calc(1.3vw * 7);
+  margin-top: calc(0.5vw * 7);
+}
+
+.d-none {
+  display: none;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,6 +1,6 @@
 const artworks = document.querySelector('.artworks')
 
-const artworksRatio = ['1 : 1', '3 : 2', '2 : 3', '1 : 1', '3 : 2', '3 : 2']
+const artworksRatio = ['1 : 1', '3 : 2', '2 : 3', '1 : 1', '3 : 2', '3 : 2', '2 : 3']
 const artworksNum = artworksRatio.length
 
 for(let i = 0; i < artworksNum; i++) {
@@ -20,7 +20,7 @@ for(let i = 0; i < artworksNum; i++) {
     artworks.appendChild(artwork1)
   }
 
-  if(i != 4 && i != 5) { 
+  if(i != 4 && i != 5 && i != 6) { 
     const artwork2 = document.createElement('div')
     artwork2.className = 'artwork'
 

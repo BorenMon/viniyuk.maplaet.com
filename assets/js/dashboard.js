@@ -25,7 +25,7 @@ for(let i = 0; i < artworksNum; i++) {
     artwork2.className = 'artwork'
 
     artwork2.innerHTML = `
-      <img src="artworks/${i + 1}/img/poster.jpeg">
+      <img src="artworks/${i + 1}/img/poster.jpeg?${new Date().getTime()}">
       <div class="info">
         <div class="ratio">ទំហំ​ ${artworksRatio[i]}</div>
         <div class="options">

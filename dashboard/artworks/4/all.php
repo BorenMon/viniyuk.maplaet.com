@@ -76,6 +76,7 @@
       <div​ class="buttons">
         <button onclick="download()">ទាញយក Poster</button>
         <button onclick="chooseImage()">ជ្រើសរើសរូបភាព</button>
+        <button onclick="sendToTelegram()" style="width: 5rem; background-color: #2AABEE; <?php echo isset($user['telegram_id']) && !empty($user['telegram_id']) ? '' : 'opacity: 0.3; cursor: not-allowed;' ?>" <?php echo isset($user['telegram_id']) && !empty($user['telegram_id']) ? '' : 'disabled title="Update your telegram id in profile setting to enable this feature."' ?>><i class="fab fa-telegram-plane" style="color: white;"></i></button>
         <div class="file-name"></div>
       </div​>
       <input type="text" placeholder="ប្រភេទ">
@@ -132,5 +133,40 @@
   </div>
 
   <?php include_once '../../footer.php' ?>
+  <script>
+    // Send to Telegram
+    const sendToTelegram = () => {
+      domtoimage.toJpeg(document.getElementById('download'), {
+        quality: 0.8
+      }).then(dataUrl => {
+      domtoimage
+        .toJpeg(document.getElementById('download'), {
+          quality: 0.8
+        })
+        .then(dataUrl => {
+          new Compressor(dataURLtoFile(dataUrl), {
+              quality : 0.8,
+              maxHeight: 2000,
+              maxWidth: 2000,
+              success(result) {
+                <?php
+                  echo "var chat_id = '" . $user['telegram_id'] . "'\n";
+                ?>
+                var token = "5348766637:AAFS9CRCB1mtG3YirFj-OZV83IDR0LCCgC0"
+
+                var formData = new FormData();
+                formData.append('chat_id', chat_id)
+                formData.append('document', result, 'poster.jpeg')
+
+                var request = new XMLHttpRequest();
+                request.open('POST', `https://api.telegram.org/bot${token}/sendDocument`)
+                request.send(formData)
+              }
+            }
+          )
+        })
+      })
+    }
+  </script>
 </body>
 </html>

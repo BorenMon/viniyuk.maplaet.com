@@ -4,7 +4,7 @@ const prePosters = document.querySelector('.prePoster')
 
 const downloads = document.querySelector('.downloads')
 
-let files, i, url, downloadID = 0;
+let files, i, url
 
 function upload() {
   uploadInput.click()
@@ -15,54 +15,66 @@ uploadInput.addEventListener('change', function() {
   files = this.files
   
   for(i = 0; i < files.length; i++) {
-    url = URL.createObjectURL(files[i])
+    new Compressor(files[i], {
+        quality : 0.8,
+        maxHeight: 2000,
+        maxWidth: 2000,
+        success(result) {
+          url = URL.createObjectURL(result)
+          const poster = document.createElement('div')
+          poster.className = 'poster-container'
+          poster.innerHTML = `
+            <div class="poster">
+              <img src="logo.svg">
+              <img src="${url}">
+            </div>
+            <div class="button">
+              <button>ទាញយករូបភាព</button>
+            </div>
+          `
 
-    const poster = document.createElement('div')
-    poster.className = 'poster-container'
-    poster.innerHTML = `
-      <div class="poster">
-        <img src="logo.svg">
-        <img src="${url}">
-      </div>
-      <div class="button">
-        <button>ទាញយករូបភាព</button>
-      </div>
-    `
+          const download = document.createElement('div')
+          download.className = `download d${downloads.childElementCount}`
+          download.innerHTML = `
+            <img src="logo.svg">
+            <img src="${url}">
+          `
 
-    const download = document.createElement('div')
-    download.className = `download d${downloadID++}`
-    download.innerHTML = `
-      <img src="logo.svg">
-      <img src="${url}">
-    `
+          prePosters.appendChild(poster)
+          downloads.appendChild(download)
 
-    prePosters.appendChild(poster)
-    downloads.appendChild(download)
+          poster.querySelector('.button button').addEventListener('click', () => {
+            domtoimage.toJpeg(download, {
+              quality: 0.8
+            }).then(dataUrl => {
+            domtoimage
+              .toJpeg(download, {
+                quality: 0.8
+              })
+              .then(dataUrl => {
+                new Compressor(dataURLtoFile(dataUrl), {
+                    quality : 0.8,
+                    maxHeight: 2000,
+                    maxWidth: 2000,
+                    success(result) {
+                      const link = document.createElement('a')
+                      link.download = 'poster.jpeg'
+                      link.href = URL.createObjectURL(result)
+                      link.click()
+                    }
+                  }
+                )
+              })
+            })
+      
+          })
+        }
+      }
+    )
   }
-
-  updateDownloading()
 })
 
 function clearPoster() {
   prePosters.innerHTML = ''
   downloads.innerHTML = ''
-  downloadID = 0
-}
-
-function updateDownloading() {
-  const buttons = document.querySelectorAll('.button button')
-  
-  buttons.forEach((btn, idx) => {
-    btn.addEventListener('click', () => {
-
-      domtoimage.toJpeg(document.querySelector(`.download.d${idx}`), { quality: 1 })
-      .then(function (dataUrl) {
-          var link = document.createElement('a');
-          link.download = 'poster.jpeg';
-          link.href = dataUrl;
-          link.click();
-      });
-
-    })
-  })
 }

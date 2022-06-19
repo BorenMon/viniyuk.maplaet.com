@@ -10,13 +10,29 @@ const preImg = document.getElementById('preImg')
 const background = document.querySelectorAll('.background')
 var cropper
 
-function chooseImage() {
-  fileInput.click()
+// Here is the code for converting "image source" (url) to "Base64"
+const toDataURL = url => fetch(url)
+.then(response => response.blob())
+.then(blob => new Promise((resolve, reject) => {
+const reader = new FileReader()
+reader.onloadend = () => resolve(reader.result)
+reader.onerror = reject
+reader.readAsDataURL(blob)
+}))
+
+
+// Here is code for converting "Base64" to javascript "File Object"
+function dataURLtoFile(dataurl, filename) {
+let arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+while(n--){
+u8arr[n] = bstr.charCodeAt(n);
+}
+return new File([u8arr], filename, {type:mime});
 }
 
-const done = function(url) {
-  preImg.src = url
-  openModal()
+function chooseImage() {
+  fileInput.click()
 }
 
 fileInput.addEventListener('change', function() {
@@ -25,7 +41,10 @@ fileInput.addEventListener('change', function() {
 
   const file = this.files[0]
 
-  if(file) done(URL.createObjectURL(file)) 
+  if(file) {
+    preImg.src = URL.createObjectURL(file)
+    openModal()
+  }
   else background.forEach(bg => bg.src = '')
 })
 
@@ -48,10 +67,18 @@ function closeModal() {
 
 function cropImg() {
   canvas = cropper.getCroppedCanvas()
+  
+  new Compressor(dataURLtoFile(canvas.toDataURL(), 'background.png'), {
+      quality : 0.8,
+      maxHeight: 2000,
+      maxWidth: 2000,
+      success(result) {
+        background.forEach(bg => bg.src = URL.createObjectURL(result))
 
-  background.forEach(bg => bg.src = canvas.toDataURL())
-
-  closeModal()
+        closeModal()
+      }
+    }
+  )
 }
 
 function updateQR() {
@@ -109,12 +136,27 @@ inputs.forEach((input, idx) => {
 })
 
 function download() {
+  domtoimage.toJpeg(document.getElementById("download"), {
+    quality: 0.8
+  }).then(dataUrl => {
   domtoimage
-  .toJpeg(document.getElementById("download"), { quality: 1 })
-  .then(function (dataUrl) {
-    var link = document.createElement("a");
-    link.download = "poster.jpeg";
-    link.href = dataUrl;
-    link.click();
-  });
+    .toJpeg(document.getElementById("download"), {
+      quality: 0.8
+    })
+    .then(dataUrl => {
+      new Compressor(dataURLtoFile(dataUrl), {
+          quality : 0.8,
+          maxHeight: 2000,
+          maxWidth: 2000,
+          success(result) {
+            const link = document.createElement('a')
+            link.download = 'poster.jpeg'
+            link.href = URL.createObjectURL(result)
+            link.click()
+          }
+        }
+      )
+    })
+  })
+
 }

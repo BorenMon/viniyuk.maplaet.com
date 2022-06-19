@@ -14,18 +14,16 @@ function chooseImage() {
   fileInput.click()
 }
 
-const done = function(url) {
-  preImg.src = url
-  openModal()
-}
-
 fileInput.addEventListener('change', function() {
   if(fileInput.value) fileName.innerText = fileInput.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1]
   else fileName.innerText = ''
 
   const file = this.files[0]
 
-  if(file) done(URL.createObjectURL(file)) 
+  if(file) {
+    preImg.src = URL.createObjectURL(file)
+    openModal()
+  }
   else background.forEach(bg => bg.src = '')
 })
 
@@ -48,10 +46,18 @@ function closeModal() {
 
 function cropImg() {
   canvas = cropper.getCroppedCanvas()
+  
+  new Compressor(dataURLtoFile(canvas.toDataURL(), 'background.png'), {
+      quality : 0.8,
+      maxHeight: 2000,
+      maxWidth: 2000,
+      success(result) {
+        background.forEach(bg => bg.src = URL.createObjectURL(result))
 
-  background.forEach(bg => bg.src = canvas.toDataURL())
-
-  closeModal()
+        closeModal()
+      }
+    }
+  )
 }
 
 function updateQR() {
@@ -109,12 +115,27 @@ inputs.forEach((input, idx) => {
 })
 
 function download() {
+  domtoimage.toJpeg(document.getElementById("download"), {
+    quality: 0.8
+  }).then(dataUrl => {
   domtoimage
-  .toJpeg(document.getElementById("download"), { quality: 1 })
-  .then(function (dataUrl) {
-    var link = document.createElement("a");
-    link.download = "poster.jpeg";
-    link.href = dataUrl;
-    link.click();
-  });
+    .toJpeg(document.getElementById("download"), {
+      quality: 0.8
+    })
+    .then(dataUrl => {
+      new Compressor(dataURLtoFile(dataUrl), {
+          quality : 0.8,
+          maxHeight: 2000,
+          maxWidth: 2000,
+          success(result) {
+            const link = document.createElement('a')
+            link.download = 'poster.jpeg'
+            link.href = URL.createObjectURL(result)
+            link.click()
+          }
+        }
+      )
+    })
+  })
+
 }

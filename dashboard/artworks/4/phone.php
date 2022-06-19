@@ -103,6 +103,7 @@
 
   <script src="../../../assets/js/cropper.min.js"></script>
   <script src="../../../assets/js/dom-to-image-more.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/compressorjs/1.1.1/compressor.min.js" integrity="sha512-VaRptAfSxXFAv+vx33XixtIVT9A/9unb1Q8fp63y1ljF+Sbka+eMJWoDAArdm7jOYuLQHVx5v60TQ+t3EA8weA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- DEV MODE -->
   <?php
     include_javascript('../../../assets/js/nav.js');

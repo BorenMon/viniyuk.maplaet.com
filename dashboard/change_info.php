@@ -75,6 +75,7 @@
           <input type="text" placeholder="Last Name" id="lname-en" autocomplete="disable"  value="<?php echo $user['lname_en']; ?>"​>
           <input type="text" placeholder="លេខទូរស័ព្ទទី១" id="phone1" autocomplete="disable"  value="<?php echo $user['phone1']; ?>"​>
           <input type="text" placeholder="លេខទូរស័ព្ទទី២" id="phone2" autocomplete="disable"  value="<?php echo $user['phone2']; ?>"​>
+          <input type="text" placeholder="Telegram ID" id="telegram-id" autocomplete="disable"  value="<?php echo $user['telegram_id']; ?>">
         </div>
         <ul class="error">
           

@@ -69,6 +69,7 @@
           <li><label>លេខទូរស័ព្ទទី១</label>: <span class="value"><?php echo $user['phone1']; ?></span></li>
           <li><label>លេខទូរស័ព្ទទី២</label>: <span class="value"><?php echo $user['phone2']; ?></span></li>
           <li><label>តំណភ្ចាប់ Telegram</label>: <span class="value"><?php echo $user['telegram_link']; ?></span></li>
+          <li><label>Telegram ID</label>: <span class="value"><?php echo $user['telegram_id']; ?></span></li>
           <li>
             <button class="btn"><a href="change_info.php">ផ្លាស់ប្ដូរព័ត៌មាន</a></button>
             <button class="btn"><a href="change_password.php">ផ្លាស់ប្ដូរលេខកូដសម្ងាត់</a></button>

@@ -106,7 +106,8 @@ $(document)
     lname_en: $('#lname-en').val(),
     phone1: $('#phone1').val(),
     phone2: $('#phone2').val(),
-    telegram_link: $('#telegram-link').val()
+    telegram_link: $('#telegram-link').val(),
+    telegram_id: $('#telegram-id').val()
   }
 
   let currentRequire = 0
@@ -114,7 +115,7 @@ $(document)
   let hasError = false
 
   for(const key in data) {
-    if(key !== 'phone2' && key !== 'telegram_link') {
+    if(key !== 'phone2' && key !== 'telegram_link' && key !== 'telegram_id') {
       if(data[key].trim() === '') {
         errorMessage += `
           <li><span>${require[currentRequire]} តម្រូវឲ្យបំពេញ!</span></li>
@@ -143,6 +144,7 @@ $(document)
     formData.append('phone1', data['phone1'])
     formData.append('phone2', data['phone2'])
     formData.append('telegram_link', data['telegram_link'])
+    formData.append('telegram_id', data['telegram_id'])
 
     if(profileImg.style.backgroundImage != resetProfileImg) {
       data['profile_img'] = dataURItoBlob(canvas.toDataURL())

@@ -18,8 +18,9 @@
     $phone1 = Filter::String($_POST['phone1']);
     $phone2 = Filter::String($_POST['phone2']);
     $telegram_link = Filter::String($_POST['telegram_link']);
+    $telegram_id = Filter::String($_POST['telegram_id']);
 
-    $updateInfo = $con->prepare('update users set username = :username, fname_kh = :fname_kh, lname_kh = :lname_kh, fname_en = :fname_en, lname_en = :lname_en, phone1 = :phone1, phone2 = :phone2, telegram_link = :telegram_link where id = :id');
+    $updateInfo = $con->prepare('update users set username = :username, fname_kh = :fname_kh, lname_kh = :lname_kh, fname_en = :fname_en, lname_en = :lname_en, phone1 = :phone1, phone2 = :phone2, telegram_link = :telegram_link, telegram_id = :telegram_id where id = :id');
     $updateInfo->bindParam(':username', $username, PDO::PARAM_STR);
     $updateInfo->bindParam(':fname_kh', $fname_kh, PDO::PARAM_STR);
     $updateInfo->bindParam(':lname_kh', $lname_kh, PDO::PARAM_STR);
@@ -28,6 +29,7 @@
     $updateInfo->bindParam(':phone1', $phone1, PDO::PARAM_STR);
     $updateInfo->bindParam(':phone2', $phone2, PDO::PARAM_STR);
     $updateInfo->bindParam(':telegram_link', $telegram_link, PDO::PARAM_STR);
+    $updateInfo->bindParam(':telegram_id', $telegram_id, PDO::PARAM_STR);
     $updateInfo->bindParam(':id', $id, PDO::PARAM_STR);
     $updateInfo->execute();
 

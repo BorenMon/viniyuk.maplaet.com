@@ -38,7 +38,7 @@
 <body>
   <nav>
     <div class="container">
-      <img src="../assets/img/white_viniyuk_name.svg" class="logo">
+      <a href="index.php"><img src="../assets/img/white_viniyuk_name.svg" class="logo"></a>
       <i class="fas fa-bars" id="menu-bar"></i>
       <div class="menu">
         <a href="index.php" class="active">ទំព័រដើម</a>
